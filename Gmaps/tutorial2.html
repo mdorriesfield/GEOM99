@@ -38,11 +38,9 @@ function initMap() {
       label: labels[i % labels.length],
     });
   });
-  // Add a marker clusterer to manage the markers.
-  new MarkerClusterer(map, markers, {
-    imagePath:
-      "https://mdorriesfield.github.io/GEOM99/Gmaps/clusterimages/",
-  });
+  var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: "https://mdorriesfield.github.io/GEOM99/Gmaps/clusterimages/",
+          });
 }
 const locations = [
   { lat: 49.75812, lng: -92.6535 },
