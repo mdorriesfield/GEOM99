@@ -55,47 +55,46 @@
       }
     </style>
     <script>
-function initMap() {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 5,
-    center: { lat: 49.31474060356605, lng: -85.46207706281558 },
-  });
-  // Create an array of alphabetical characters used to label the markers.
-  const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  // Add some markers to the map.
-  // Note: The code uses the JavaScript Array.prototype.map() method to
-  // create an array of markers based on a given "locations" array.
-  // The map() method here has nothing to do with the Google Maps API.
-  const markers = locations.map((location, i) => {
-    return new google.maps.Marker({
-      position: location,
-      label: labels[i % labels.length],
-    });
-  });
-  var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: "https://mdorriesfield.github.io/GEOM99/Gmaps/clusterimages/m",
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 5,
+          center: { lat: 49.31474060356605, lng: -85.46207706281558 },
+        });
+        // Create an array of alphabetical characters used to label the markers.
+        const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        const markers = locations.map((location, i) => {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length],
           });
-}
-const locations = [
-  { lat: 45.44205, lng: -78.8206 },
-  { lat: 45.3915, lng: -79.214 },
-  { lat: 44.8437, lng: -80.0027 },
-  { lat: 44.62555, lng: -78.8574 },
-  { lat: 43.40684, lng: -79.7689 },
-  { lat: 43.8755, lng: -78.7778 },
-  { lat: 46.47, lng: -81.44 },
-  { lat: 45.91768, lng: -80.5593 },
-  { lat: 42.5834, lng: -80.3829 },
-  { lat: 44.0101, lng: -77.7416 },
-  { lat: 46.06529, lng: -79.7688 },
-  { lat: 42.32408, lng: -81.847 },
-  { lat: 44.3217, lng: -79.325 },
-  { lat: 44.82982, lng: -76.5767 },
-  { lat: 48.50637, lng: -88.7287 },
-  { lat: 43.24841, lng: -81.8234 },
-  { lat: 42.09067, lng: -82.4422 },
-];
-
+        });
+        var markerCluster = new MarkerClusterer(map, markers,
+                  {imagePath: "https://mdorriesfield.github.io/GEOM99/Gmaps/clusterimages/m",
+                });
+      }
+      const locations = [
+        { lat: 45.44205, lng: -78.8206 },
+        { lat: 45.3915, lng: -79.214 },
+        { lat: 44.8437, lng: -80.0027 },
+        { lat: 44.62555, lng: -78.8574 },
+        { lat: 43.40684, lng: -79.7689 },
+        { lat: 43.8755, lng: -78.7778 },
+        { lat: 46.47, lng: -81.44 },
+        { lat: 45.91768, lng: -80.5593 },
+        { lat: 42.5834, lng: -80.3829 },
+        { lat: 44.0101, lng: -77.7416 },
+        { lat: 46.06529, lng: -79.7688 },
+        { lat: 42.32408, lng: -81.847 },
+        { lat: 44.3217, lng: -79.325 },
+        { lat: 44.82982, lng: -76.5767 },
+        { lat: 48.50637, lng: -88.7287 },
+        { lat: 43.24841, lng: -81.8234 },
+        { lat: 42.09067, lng: -82.4422 },
+      ];
     </script>
   </head>
   <body>
