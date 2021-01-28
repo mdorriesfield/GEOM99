@@ -3,9 +3,38 @@
   <head>
     <title>Shark Sightings False Bay, SA</title>
     <style>
+      /* for navbar */
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          background-color: #333;
+        }
+
+        li {
+          float: left;
+        }
+
+        li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+          background-color: #111;
+        }
+
+        .active {
+          background-color: #4CAF50;
+        }
+
         #sharkmap {
-            margin: 15px auto;
-            display: block;
+        margin: 15px auto;
+        display: block;
         }
         html, body {
             height: 100%;
@@ -15,6 +44,12 @@
     </style>
   </head>
   <body>
+    <ul>
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
     <iframe id="sharkmap" src="https://www.google.ca/maps/d/embed?mid=1uE_wm9PFigl9dUKtM67yjDB1dCifZKcn" title="Shark Sightings in False Bay, South Africa" width="640" height="480"></iframe>
   </body>
 </html>
