@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ThreePillarsHSR</title>
+    <title>Haliburton Scout Reserve</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu_dkNZ5N8suIkb7f2cPYKKZryJ0af--0&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
     <style type="text/css">
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
         height: 100%;
+        width: 60%;
+        float: right;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -23,8 +29,9 @@
 
       function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 45.08784818642601, lng: -78.29926317364271 },
-          zoom: 12,
+          center: { lat: 45.087267862144, lng: -78.30859778758754 },
+          zoom: 15,
+          mapTypeId: 'hybrid'
         });
       }
     </script>
@@ -32,8 +39,9 @@
   <body>
     <div id="map"></div>
 
-    <!-- <a href="https://maps.googleapis.com/maps/api/directions/json?origin=Uxbridge,Ontario&destination=Haliburton%20Scout%20Reserve&key=AIzaSyBu_dkNZ5N8suIkb7f2cPYKKZryJ0af--0" >Directions from Uxbridge to Haliburton Scout Reserve</a>
+    <p><a href="https://maps.googleapis.com/maps/api/directions/json?origin=Toronto,Ontario&destination=Haliburton%20Scout%20Reserve&key=AIzaSyBu_dkNZ5N8suIkb7f2cPYKKZryJ0af--0" target="_blank">Directions from Toronto to Haliburton Scout Reserve</a></p>
 
-    <a href="https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Haliburton%20Scout%20Reserve&inputtype=textquery&fields=place_id,formatted_address&key=AIzaSyBu_dkNZ5N8suIkb7f2cPYKKZryJ0af--0" >Place information for Haliburton Scout Reserve</a> -->
+    <p><a href="https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Haliburton%20Scout%20Reserve&inputtype=textquery&fields=name,formatted_address,type&key=AIzaSyBu_dkNZ5N8suIkb7f2cPYKKZryJ0af--0" target="_blank">Place information for Haliburton Scout Reserve</a></p>
+
   </body>
 </html>
