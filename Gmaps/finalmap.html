@@ -6,7 +6,6 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu_dkNZ5N8suIkb7f2cPYKKZryJ0af--0&callback=initMap&libraries=&v=weekly"
       defer
     ></script>
-    <script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
     <style type="text/css">
       /* for navbar */
       ul {
@@ -59,23 +58,40 @@
           center: { lat: -0.3046714990034484, lng: -78.47254183196448 },
           mapTypeId: 'hybrid'
         });
-
-        // Create an array of alphabetical characters used to label the markers.
-        const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        // Add some markers to the map.
-        // Note: The code uses the JavaScript Array.prototype.map() method to
-        // create an array of markers based on a given "locations" array.
-        // The map() method here has nothing to do with the Google Maps API.
-        const markers = locations.map((location, i) => {
-          return new google.maps.Marker({
-            position: location,
-            label: labels[i % labels.length],
+        for (var i =0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: locations[i],
+            map: map,
           });
+          addInfoWindow(marker, sitedescription[i])
+        }
+      };
+
+      function addInfoWindow (marker, siteinfo) {
+        const infowindow = new google.maps.InfoWindow({
+          content: siteinfo,
         });
-        var markerCluster = new MarkerClusterer(map, markers,
-                  {imagePath: "https://mdorriesfield.github.io/GEOM99/Gmaps/clusterimages/m",
-                });
+        marker.addListener("click", () => {
+          infowindow.open(marker.get("map"), marker);
+        });
       }
+
+
+      // const image = "/iconimages/binocularssmall.png"
+      
+      const sitedescription = [
+        "Yellow House",
+        "Mangaloma Reserve",
+        "Rio Silanche Reserve",
+        "Papallacta Antennas",
+        "Papallacta: Road to Reserve",
+        "Guango Lodge",
+        "San Isidro",
+        "Guacamayos Ridge",
+        "Narupa Reserve",
+        "Rio Bigal Reserve",
+      ]
+
       const locations = [
         { lat: -0.05112495397812946, lng: -78.7722724157827 }, /*Yellow House*/
         { lat: 0.10662943800824033, lng: -78.98545811748986 }, /*Mangaloma*/
