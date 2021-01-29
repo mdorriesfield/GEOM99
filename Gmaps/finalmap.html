@@ -41,7 +41,7 @@
 
       /* Set the size of the div element that contains the map */
       #map {
-        height: 400px;
+        height: 500px;
         /* The height is 600 pixels */
         margin: 15px auto;
       }
@@ -59,159 +59,36 @@
           center: { lat: -0.3046714990034484, lng: -78.47254183196448 },
           mapTypeId: 'hybrid'
         });
-        const iconBase =
-          "https://mdorriesfield.github.io/GEOM99/Gmaps/";
-        const icons = {
-          birding: {
-            icon: iconBase + "binocularssmall.png",
-          },
-          accommodation: {
-            icon: iconBase + "accommodationsmall.png",
-          },
-          busstation: {
-            icon: iconBase + "bus-stopsmall.png",
-          },
-        };
 
-
-        // // Create an array of alphabetical characters used to label the markers.
-        // const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        // // Add some markers to the map.
-        // // Note: The code uses the JavaScript Array.prototype.map() method to
-        // // create an array of markers based on a given "locations" array.
-        // // The map() method here has nothing to do with the Google Maps API.
-        // const markers = locations.map((location, i) => {
-        //   return new google.maps.Marker({
-        //     position: location,
-        //     label: labels[i % labels.length],
-        //   });
-        // });
-        // var markerCluster = new MarkerClusterer(map, markers,
-        //           {imagePath: "https://mdorriesfield.github.io/GEOM99/Gmaps/clusterimages/m",
-        //         });
-      }
-      // const locations = [
-      //   { lat: -0.05112495397812946, lng: -78.7722724157827 }, /*Yellow House*/
-      //   { lat: 0.10662943800824033, lng: -78.98545811748986 }, /*Mangaloma*/
-      //   { lat: 0.14496954390752953, lng: -79.14130953112692 },  /*Rio Silanche*/
-      //   { lat: -0.3184902548308263, lng: -78.19124774636069 }, /*Papallacta Antennas*/
-      //   { lat: -0.34071353512099634, lng: -78.1488339701535 }, /*Palallacta Road to Reserve*/
-      //   { lat: -0.37930577091198003, lng: -78.07666023112502 }, /*Guango Lodge*/
-      //   { lat: -0.5907329173534129, lng: -77.88070784451646 }, /*San Isidro*/
-      //   { lat: -0.6232004593237038, lng: -77.84060935792895 }, /*Guacamayos Ridge*/
-      //   { lat: -0.6878310086982257, lng: -77.73505898750487 }, /*Narupa Reserve*/
-      //   { lat: -0.5319745404732462, lng: -77.42239025834304 }, /*Rio Bigal Reserve*/
-      // ];
-      const features = [
-          {
-            position: new google.maps.LatLng(-0.05112495397812946, -78.7722724157827),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(0.10662943800824033, -78.98545811748986),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(0.14496954390752953, -79.14130953112692),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(-0.3184902548308263, -78.19124774636069),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(-0.34071353512099634, -78.1488339701535),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(-0.37930577091198003, -78.07666023112502),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(-0.5907329173534129, -77.88070784451646),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(-0.6232004593237038, -77.84060935792895),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(-0.6878310086982257, -77.73505898750487),
-            type: "birding",
-          },
-          {
-            position: new google.maps.LatLng(-0.5319745404732462, -77.42239025834304),
-            type: "birding",
-          }
-        ];
-          // {
-          //   position: new google.maps.LatLng(-33.916988, 151.23364),
-          //   type: "birding",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.91662347903106,
-          //     151.22879464019775
-          //   ),
-          //   type: "parking",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.916365282092855,
-          //     151.22937399734496
-          //   ),
-          //   type: "parking",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.91665018901448,
-          //     151.2282474695587
-          //   ),
-          //   type: "parking",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.919543720969806,
-          //     151.23112279762267
-          //   ),
-          //   type: "parking",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.91608037421864,
-          //     151.23288232673644
-          //   ),
-          //   type: "parking",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.91851096391805,
-          //     151.2344058214569
-          //   ),
-          //   type: "parking",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.91818154739766,
-          //     151.2346203981781
-          //   ),
-          //   type: "parking",
-          // },
-          // {
-          //   position: new google.maps.LatLng(
-          //     -33.91727341958453,
-          //     151.23348314155578
-          //   ),
-          //   type: "library",
-          // },
-        // Create markers.
-        for (let i = 0; i < features.length; i++) {
-          const marker = new google.maps.Marker({
-            position: features[i].position,
-            icon: icons[features[i].type].icon,
-            map: map,
+        // Create an array of alphabetical characters used to label the markers.
+        const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        const markers = locations.map((location, i) => {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length],
           });
-        }
+        });
+        var markerCluster = new MarkerClusterer(map, markers,
+                  {imagePath: "https://mdorriesfield.github.io/GEOM99/Gmaps/clusterimages/m",
+                });
+      }
+      const locations = [
+        { lat: -0.05112495397812946, lng: -78.7722724157827 }, /*Yellow House*/
+        { lat: 0.10662943800824033, lng: -78.98545811748986 }, /*Mangaloma*/
+        { lat: 0.14496954390752953, lng: -79.14130953112692 },  /*Rio Silanche*/
+        { lat: -0.3184902548308263, lng: -78.19124774636069 }, /*Papallacta Antennas*/
+        { lat: -0.34071353512099634, lng: -78.1488339701535 }, /*Palallacta Road to Reserve*/
+        { lat: -0.37930577091198003, lng: -78.07666023112502 }, /*Guango Lodge*/
+        { lat: -0.5907329173534129, lng: -77.88070784451646 }, /*San Isidro*/
+        { lat: -0.6232004593237038, lng: -77.84060935792895 }, /*Guacamayos Ridge*/
+        { lat: -0.6878310086982257, lng: -77.73505898750487 }, /*Narupa Reserve*/
+        { lat: -0.5319745404732462, lng: -77.42239025834304 }, /*Rio Bigal Reserve*/
+      ];
+
     </script>
   </head>
   <body>
