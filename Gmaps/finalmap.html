@@ -70,26 +70,93 @@
       function addInfoWindow (marker, siteinfo) {
         const infowindow = new google.maps.InfoWindow({
           content: siteinfo,
+          maxWidth: 300,
         });
         marker.addListener("click", () => {
           infowindow.open(marker.get("map"), marker);
-        });
+        });      
       }
 
+      // function zoomClick (marker, map)
+      //   marker.addListener("click", () => {
+      //     map.setZoom(8);
+      //     map.setCenter(marker.getPosition());
+      //     });
 
       // const image = "/iconimages/binocularssmall.png"
       
       const sitedescription = [
-        "Yellow House",
-        "Mangaloma Reserve",
-        "Rio Silanche Reserve",
-        "Papallacta Antennas",
-        "Papallacta: Road to Reserve",
-        "Guango Lodge",
-        "San Isidro",
-        "Guacamayos Ridge",
-        "Narupa Reserve",
-        "Rio Bigal Reserve",
+        "<h2>Yellow House - Mindo</h2>" +
+        "<p>Habitat: Cloud Forest, Second Growth, Gardens, Open Pasture</p>" +
+        "<p>Elevation: 1200m to 1700m</p>" +
+        "<p>Lovely rooms and cabins surrounded by very birdy gardens just outside Mindo. A road up the hill leads to" +
+        " an extensive network of trails through old second growth then nice primary forest at the top" +
+        "of the property</p>" +
+        '<a href="https://ebird.org/barchart?r=L792572&yr=all&m=" target="_blank">eBird Bar Chart</a>',
+
+        "<h2>Mangaloma Reserve</h2>" +
+        "<p>Habitat: Foothill Rainforest, Second Growth, Gardens</p>" +
+        "<p>Elevation: 700m to 900m</p>" +
+        "<p>Quiet, rustic accommodation among gardens, bamboo and open areas. Trails" +
+        "lead across the river toward 2 loops though Choco foothill forest, with another" +
+        "trail leading up to the top of the preserve where Long-wattled Umbrellabirds lek</p>" +
+        '<a href="https://ebird.org/barchart?r=L600104&yr=all&m=" target="_blank">eBird Bar Chart</a>',
+
+        "<h2>Rio Silanche Bird Sanctuary</h2>" +
+        "<p>Habitat: Lowland Rainforest</p>" +
+        "<p>Elevation: 325m to 410m</p>" +
+        "<p>Small tract of preserved Choco lowland rainforest with a canopy tower and wide, well" +
+        "maintained forest trails. Most accessible site for many Choco endemics" +
+        '<a href="https://ebird.org/barchart?r=L1396974&yr=all&m="_blank">eBird Bar Chart</a>',
+
+        "<h2>Papallacta - Road to Antennas</h2>" +
+        "<p>Habitat: Paramo, Scrub, Andean Lakes</p>" +
+        "<p>Elevation: 3900m to 4400m</p>" +
+        "<p>Dirt road climbing from the pass up to the paramo at the peak. THE place in Ecuador " +
+        "to look for Rufous-bellied Seedsnipe</p>" +
+        '<a href="https://ebird.org/barchart?r=L947285&yr=all&m="_blank">eBird Bar Chart</a>',
+        
+        "<h2>Papallacta - Road from town to Preserve</h2>" +
+        "<p>Habitat: Elfin Forest, Scrub</p>" +
+        "<p>Elevation: 3300m to 3700m</p>" +
+        "<p>Road heading from the hot springs resort through elfin forest up towards the reserve. " +
+        "Forests near the top of the road are good for Masked Mountan-Tanger, Golden-crowned Tanager etc.</p>" +
+        '<a href="https://ebird.org/barchart?r=L1740868&yr=all&m="_blank">eBird Bar Chart</a>',	
+        
+        "<h2>Guango Lodge</h2>" +
+        "<p>Habitat: Cloud Forest, River</p>" +
+        "<p>Elevation: 2700m</p>" +
+        "<p>High elevation cloud forest along a rushing river with Torrent Ducks, with a handful of trails. " +
+        "Amazing hummingbird feeder set-up that attract Sword-billed Hummingbird among opthes</p>" +
+        '<a href="https://ebird.org/barchart?r=L489428&yr=all&m="_blank">eBird Bar Chart</a>',
+
+        "<h2>Cabanas San Isidro</h2>" +
+        "<p>Habitat: Cloud Forest</p>" +
+        "<p>Elevation: 1800m to 2000m</p>" +
+        "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
+        "through old second growth and nice primary forest</p>" +
+        '<a href="https://ebird.org/barchart?r=L489454&yr=all&m="_blank">eBird Bar Chart</a>',
+
+        "<h2>Guacamayos Ridge</h2>" +
+        "<p>Habitat: Cloud Forest</p>" +
+        "<p>Elevation: 2200m to 1800m</p>" +
+        "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
+        "through old second growth and nice primary forest</p>" +
+        '<a href="https://ebird.org/barchart?r=L468859&yr=all&m="_blank">eBird Bar Chart</a>',
+        
+        "<h2>Narupa Reserve</h2>" +
+        "<p>Habitat: Montane Rainforest</p>" +
+        "<p>Elevation: 1000m to 1600m</p>" +
+        "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
+        "through old second growth and nice primary forest</p>" +
+        '<a href="https://ebird.org/barchart?r=L1238007&yr=all&m="_blank">eBird Bar Chart</a>',
+
+        "<h2>Rio Bigal Reserve</h2>" +
+        "<p>Habitat: Foothill Rainforest</p>" +
+        "<p>Elevation: 500m to 900m</p>" +
+        "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
+        "through old second growth and nice primary forest</p>" +
+        '<a href="https://ebird.org/barchart?r=L2763260&yr=all&m="_blank">eBird Bar Chart</a>',
       ]
 
       const locations = [
