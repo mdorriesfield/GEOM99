@@ -7,47 +7,18 @@
       defer
     ></script>
     <style type="text/css">
-      /* for navbar */
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-      }
-
-      li {
-        float: left;
-      }
-
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-
-      li a:hover:not(.active) {
-        background-color: #111;
-      }
-
-      .active {
-        background-color: #4CAF50;
-      }
-      /*end of navbar*/
-      /* for map */
 
       /* Set the size of the div element that contains the map */
       #map {
-        height: 500px;
-        /* The height is 600 pixels */
-        margin: 15px auto;
+        height: 90%;
+        /* width: 100%; */
+        /* margin: 15px auto; */
       }
       h1 {
           text-align: center;
       }
-      body {
+      html, body {
+        height: 100%;
         margin: 0px;
         /* background-color: rgb(56, 109, 56); */
       }
@@ -64,34 +35,38 @@
     <script>
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 8,
+          zoom: 9,
           center: { lat: -0.3046714990034484, lng: -78.47254183196448 },
           mapTypeId: 'hybrid'
         });
+        const marker = [];
         for (var i =0; i < locations.length; i++) {
-          marker = new google.maps.Marker({
+          marker[i] = new google.maps.Marker({
             position: locations[i],
             map: map,
           });
-          addInfoWindow(marker, sitedescription[i])
+          addInfoWindow(marker[i], sitedescription[i], map)
         }
       };
 
-      function addInfoWindow (marker, siteinfo) {
+      function addInfoWindow (marker, siteinfo, themap) {
         const infowindow = new google.maps.InfoWindow({
           content: siteinfo,
           maxWidth: 400,
         });
         marker.addListener("click", () => {
           infowindow.open(marker.get("map"), marker);
+          themap.panTo(marker.getPosition());
+          if (themap.zoom != 13) {
+            themap.setZoom(13);
+          }
         });      
       }
 
-      // function zoomClick (marker, map)
-      //   marker.addListener("click", () => {
-      //     map.setZoom(8);
-      //     map.setCenter(marker.getPosition());
-      //     });
+          // marker.addListener("click", () => {
+          // map.panTo(marker.getPosition());
+          // map.setZoom(12);
+          // map.setCenter(marker.getPosition());
 
       // const image = "/iconimages/binocularssmall.png"
       
@@ -130,7 +105,7 @@
         "<p>Habitat: Lowland Rainforest</p>" +
         "<p>Elevation: 325m to 410m</p>" +
         "<p><div>Focal Species:</div>" +
-        '<div class="left">Orange-fronted Barbete</div>' +
+        '<div class="left">Orange-fronted Barbet</div>' +
         '<div class="right">Chestnut-fronted Macaw</div>' +
         '<div class="left">Black-capped Pygmy-Tyrant</div>' +
         '<div class="right">Slate-throated Gnatcatcher</div>' +
@@ -255,16 +230,6 @@
     </script>
   </head>
   <body>
-    <ul>
-      <li><a class="active" href="SharkMap.html">Shark Spotters</a></li>
-      <li><a href="threepillarsAPIs.html">Three Pillars APIs</a></li>
-      <li><a href="tutorial1.html">Tutorial 1</a></li>
-      <li><a href="tutorial2.html">Tutorial 2</a></li>
-      <li><a href="tutorial3a.html">Tutorial 3a</a></li>
-      <li><a href="tutorial3b.html">Tutorial 3b</a></li>
-      <li><a href="tutorial3c.html">Tutorial 3c</a></li>
-      <li><a href="finalmap.html">Final Map</a></li>
-    </ul>
     <h1>Budget Birding in Northern Ecuador</h1>
     <!--The div element for the map -->
     <div id="map"></div>
