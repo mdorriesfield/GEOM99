@@ -7,29 +7,57 @@
       defer
     ></script>
     <style type="text/css">
+      html, body {
+        height: 100%;
+        margin: 0px;
+        background-color: rgb(129, 206, 94);
+      }
       /* Set the size of the div element that contains the map */
       #map {
-        height: 95%;
+        height: 80%;
+        border: 3px solid green;
         /* width: 100%; */
         /* margin: 15px auto; */
       }
       h1 {
-          text-align: center;
-          color: rgb(230, 243, 230);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(230, 243, 230);
+        line-height: 100%;
+        height: 10%;
+        margin: 0;
       }
-      html, body {
-        height: 100%;
-        margin: 0px;
-        background-color: rgb(102, 177, 102);
+     
+      #bottom {
+        height: 10%;
       }
-      /*Format Focal Species in boxes*/
-      .left {
-        width: 50%;
-        float: left;
+      p {
+        height: 90%;
+        margin: 10px;
+        color: rgb(14, 17, 14);
+      }
+
+      /*Format Focal Species in info boxes*/
+      .h2 {
+        margin-left: 10px;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        margin-left: 10px;
+        margin-right: 10px;
       }
       .right {
-        width: 50%;
-        float: right;
+        /* margin-right: 10px; */
+        /* float: right; */
+        flex: 50%;
+      }
+      .left {
+        /* margin-left: 10px; */
+        /* float: left; */
+        flex: 50%;
       }
     </style>
     <script>
@@ -74,143 +102,145 @@
         "<h2>Yellow House - Mindo</h2>" +
         "<p>Habitat: Cloud Forest, Second Growth, Gardens, Open Pasture</p>" +
         "<p>Elevation: 1200m to 1700m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Golden-headed Quetzal</div>' +
-        '<div class="right">Scaled Fruiteater</div>' +
-        '<div class="left">Common Potoo</div>' +
-        '<div class="right">Booted Racket-tail</div>' +
-        '<div class="left">Crimson-rumped Toucanet</div>' +
-        '<div class="right">Guayaquil Woodpecker</div></p>' +
-        // "<p>Lovely rooms and cabins surrounded by very birdy gardens just outside Mindo. A road up the hill leads to" +
-        // " an extensive network of trails through old second growth then nice primary forest at the top" +
-        // "of the property</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Golden-headed Quetzal</div>' +
+        '<div class="right">Scaled Fruiteater</div></div>' +
+        '<div class="flex-container"><div class="left">Common Potoo</div>' +
+        '<div class="right">Booted Racket-tail</div></div>' +
+        '<div class="flex-container"><div class="left">Crimson-rumped Toucanet</div>' +
+        '<div class="right">Guayaquil Woodpecker</div></div>' +
+        "<p>Lovely rooms and cabins surrounded by very birdy gardens just outside Mindo. A road up the hill leads to" +
+        " an extensive network of trails through old second growth then nice primary forest at the top" +
+        "of the property.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L792572&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
 
         "<h2>Mangaloma Reserve</h2>" +
         "<p>Habitat: Foothill Rainforest, Second Growth, Gardens</p>" +
         "<p>Elevation: 700m to 900m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Indigo Quail-Dove</div>' +
-        '<div class="right">Plumbeous Hawk</div>' +
-        '<div class="left">Crested Owl</div>' +
-        '<div class="right">Lanceolated Monklet</div>' +
-        '<div class="left">Crimson-bellied Woodpecker</div>' +
-        '<div class="right">Long-wattled Umbrellabird</div></p>' +
-        // "<p>Quiet, rustic accommodation among gardens, bamboo and open areas. Trails" +
-        // "lead across the river toward 2 loops though Choco foothill forest, with another" +
-        // "trail leading up to the top of the preserve where Long-wattled Umbrellabirds lek</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Indigo Quail-Dove</div>' +
+        '<div class="right">Banded Ground-Cuckoo</div></div>' +
+        '<div class="flex-container"><div class="left">Crested Owl</div>' +
+        '<div class="right">Lanceolated Monklet</div></div>' +
+        '<div class="flex-container"><div class="left">Crimson-bellied Woodpecker</div>' +
+        '<div class="right">Long-wattled Umbrellabird</div></div>' +
+        "<p>Quiet, rustic accommodation among gardens, bamboo and open areas. Trails" +
+        "lead across the river toward 2 loops though Choco foothill forest, with another" +
+        "trail leading up to the top of the preserve where Long-wattled Umbrellabirds lek.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L600104&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
 
         "<h2>Rio Silanche Bird Sanctuary</h2>" +
         "<p>Habitat: Lowland Rainforest</p>" +
         "<p>Elevation: 325m to 410m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Orange-fronted Barbet</div>' +
-        '<div class="right">Chestnut-fronted Macaw</div>' +
-        '<div class="left">Black-capped Pygmy-Tyrant</div>' +
-        '<div class="right">Slate-throated Gnatcatcher</div>' +
-        '<div class="left">Blue-whiskered Tanager</div>' +
-        '<div class="right">Scarlet-breasted Dacnis</div></p>' +
-        // "<p>Small tract of preserved Choco lowland rainforest with a canopy tower and wide, well" +
-        // "maintained forest trails. Most accessible site for many Choco endemics" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Orange-fronted Barbet</div>' +
+        '<div class="right">Chestnut-fronted Macaw</div></div>' +
+        '<div class="flex-container"><div class="left">Black-capped Pygmy-Tyrant</div>' +
+        '<div class="right">Slate-throated Gnatcatcher</div></div>' +
+        '<div class="flex-container"><div class="left">Blue-whiskered Tanager</div>' +
+        '<div class="right">Scarlet-breasted Dacnis</div></div>' +
+        "<p>Small tract of preserved Choco lowland rainforest with a canopy tower and wide, well" +
+        "maintained forest trails. Most accessible site for many Choco endemics." +
         '<p><a href="https://ebird.org/barchart?r=L1396974&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
 
         "<h2>Papallacta - Road to Antennas</h2>" +
         "<p>Habitat: Paramo, Scrub, Andean Lakes</p>" +
         "<p>Elevation: 3900m to 4400m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Ecuadorian Hillster</div>' +
-        '<div class="right">Blue-manted Thornbill</div>' +
-        '<div class="left">Rufous-bellied Seedsnipe</div>' +
-        '<div class="right">Carunculated Caracara</div>' +
-        '<div class="left">Andean Tit-Spinetail</div>' +
-        '<div class="right">Red-rumped Bush-Tyrant</div></p>' +
-        // "<p>Dirt road climbing from the pass up to the paramo at the peak. THE place in Ecuador " +
-        // "to look for Rufous-bellied Seedsnipe</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Ecuadorian Hillstar</div>' +
+        '<div class="right">Blue-mantled Thornbil</div></div>' +
+        '<div class="flex-container"><div class="left">Rufous-bellied Seedsnipe</div>' +
+        "<div class='right'>Jameson's Snipe</div></div>" +
+        '<div class="flex-container"><div class="left">Red-rumped Bush-Tyrant</div>' +
+        '<div class="right">Andean Tit-Spinetail</div></div>' +
+        "<p>Dirt road climbing from the pass up to the paramo at the peak. Best place in Ecuador " +
+        "to look for Rufous-bellied Seedsnipe.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L947285&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
         
         "<h2>Papallacta - Road from town to Preserve</h2>" +
         "<p>Habitat: Elfin Forest, Scrub</p>" +
         "<p>Elevation: 3300m to 3700m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Purple-backed Thornbill</div>' +
-        '<div class="right">Rainbow-beareded Thornbill</div>' +
-        '<div class="left">Black-chested Buzzard-Eagl</div>' +
-        '<div class="right">Scarlet-breasted Mountain-Tanager</div>' +
-        '<div class="left">Masked Mountain-Tanager</div>' +
-        '<div class="right">Black-backed Bush-Tanager</div></p>' +
-        // "<p>Road heading from the hot springs resort through elfin forest up towards the reserve. " +
-        // "Forests near the top of the road are good for Masked Mountan-Tanger, Golden-crowned Tanager etc.</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Purple-backed Thornbill</div>' +
+        '<div class="right">Rainbow-bearded Thornbill</div></div>' +
+        '<div class="flex-container"><div class="left">Black-chested Buzzard-Eagle</div>' +
+        '<div class="right">Black-headed Hemispingus</div></div>' +
+        '<div class="flex-container"><div class="left">Masked Mountain-Tanager</div>' +
+        '<div class="right">Black-backed Bush-Tanager</div></div>' +
+        "<p>Road heading from the hot springs resort through elfin forest up towards paramo at the reserve. " +
+        "Forests near the top of the road are good for Masked Mountan-Tanger and Black-backed Bush-Tanager.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L1740868&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',	
         
         "<h2>Guango Lodge</h2>" +
         "<p>Habitat: Cloud Forest, River</p>" +
         "<p>Elevation: 2700m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Torrent Duck</div>' +
-        '<div class="right">Mountain Avocetbill</div>' +
-        '<div class="left">Sword-billed Hummingbird</div>' +
-        '<div class="right">Gray-breasted Mountain-Toucan</div>' +
-        '<div class="left">Plushcap</div>' +
-        '<div class="right">Mountain Cacique</div></p>' +
-        // "<p>High elevation cloud forest along a rushing river with Torrent Ducks, with a handful of trails. " +
-        // "Amazing hummingbird feeder set-up that attract Sword-billed Hummingbird among opthes</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Torrent Duck</div>' +
+        '<div class="right">Mountain Avocetbill</div></div>' +
+        '<div class="flex-container"><div class="left">Sword-billed Hummingbird</div>' +
+        '<div class="right">Gray-hooded Tanager</div></div>' +
+        '<div class="flex-container"><div class="left">Plushcap</div>' +
+        '<div class="right">Gray-breasted Mountain-Toucan</div></div>' +
+        "<p>High elevation cloud forest along a rushing river with Torrent Ducks, with a handful of trails. " +
+        "Amazing hummingbird feeder set-up that attract Sword-billed Hummingbird among hordes of" +
+        "Chestnut-breasted Coronets and many other species.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L489428&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
 
         "<h2>Cabanas San Isidro</h2>" +
         "<p>Habitat: Cloud Forest</p>" +
         "<p>Elevation: 1800m to 2000m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Andean Potoo</div>' +
-        '<div class="right">San Isidro Owl</div>' +
-        '<div class="left">Barred Antthrush</div>' +
-        '<div class="right">Black-chested Fruiteater</div>' +
-        '<div class="left">Black-billed Peppershrike</div>' +
-        '<div class="right">White-capped Tanager</div></p>' +
-        // "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
-        // "through old second growth and nice primary forest</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Andean Potoo</div>' +
+        '<div class="right">"San Isidro Owl"</div></div>' +
+        '<div class="flex-container"><div class="left">Barred Antthrush</div>' +
+        '<div class="right">Black-chested Fruiteater</div></div>' +
+        '<div class="flex-container"><div class="left">Sickle-winged Guan</div>' +
+        '<div class="right">White-capped Tanager</div></div>' +
+        "<p>Excellent trails through cloud forest. White-bellied Antpitta feeding, Andean Cock-of-the-Rock lek " +
+        "and home of the undescribed 'San Isidro Owl'. $10 fee to walk the trails if not staying on the property.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L489454&yr=all&m=" target="_blank" class ="eBird">eBird Bar Chart</a></p>',
 
         "<h2>Guacamayos Ridge</h2>" +
         "<p>Habitat: Cloud Forest</p>" +
         "<p>Elevation: 2200m to 1800m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">White-faced Nunbird</div>' +
-        '<div class="right">Black-billed Mountain-Toucan</div>' +
-        '<div class="left">Greater Scythbill</div>' +
-        '<div class="right">Peruvian Antpitta</div>' +
-        '<div class="left">Bicolored Antvireo</div>' +
-        '<div class="right">Orange-eared Tanager</div></p>' +
-        // "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
-        // "through old second growth and nice primary forest</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">White-faced Nunbird</div>' +
+        '<div class="right">Black-billed Mountain-Toucan</div></div>' +
+        '<div class="flex-container"><div class="left">Greater Scythebill</div>' +
+        '<div class="right">Peruvian Antpitta</div></div>' +
+        '<div class="flex-container"><div class="left">Bicolored Antvireo</div>' +
+        '<div class="right">Orange-eared Tanager</div></div>' +
+        "<p>Notoriously cloudy and rainy place, but best place in Ecuador to look for Greater Scythbill, Peruvian Antpitta, " +
+        "and others. Amazing birding if the weather cooperates. </p>" +
         '<p><a href="https://ebird.org/barchart?r=L468859&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
         
         "<h2>Narupa Reserve</h2>" +
         "<p>Habitat: Montane Rainforest</p>" +
         "<p>Elevation: 1000m to 1600m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Black Tinamou</div>' +
-        '<div class="right">Wire-crested Thorntail</div>' +
-        '<div class="left">Gould\'s Jewelfront</div>' +
-        '<div class="right">Amazonian Umbrellabird</div>' +
-        '<div class="left">Wing-banded Wren</div>' +
-        '<div class="right">Deep-blue Flowerpiercer</div></p>' +
-        // "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
-        // "through old second growth and nice primary forest</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Black Tinamou</div>' +
+        '<div class="right">White-crested Thorntail</div></div>' +
+        '<div class="flex-container"><div class="left">Gould\'s Jewelfront</div>' +
+        '<div class="right">Amazonian Umbrellabird</div></div>' +
+        '<div class="flex-container"><div class="left">Wing-banded Wren</div>' +
+        '<div class="right">Deep-blue Flowerpiercer</div></div>' +
+        "<p>Most reliable place to at least hear Black Tinamou, also excellent forest birding " +
+        "and hummingbird feeder set-up.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L1238007&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
 
         "<h2>Rio Bigal Reserve</h2>" +
         "<p>Habitat: Foothill Rainforest</p>" +
         "<p>Elevation: 500m to 900m</p>" +
-        "<p><div>Focal Species:</div>" +
-        '<div class="left">Nocturnal Curassow</div>' +
-        '<div class="right">Pink-throated Brilliant</div>' +
-        '<div class="left">Blue-fronted Lancebill</div>' +
-        '<div class="right">Gray-winged Trumpeter</div>' +
-        '<div class="left">Blackish Pewee</div>' +
-        '<div class="right">White-eyed Tody-Tyrant</div></p>' +
-        // "<p>Lovely rooms and cabins surrounded by very birdy gardens. A road up the hill leads trails " +
-        // "through old second growth and nice primary forest</p>" +
+        '<div class="flex-container">Focal Species:</div>' +
+        '<div class="flex-container"><div class="left">Nocturnal Curassow</div>' +
+        '<div class="right">Pink-throated Brilliant</div></div>' +
+        '<div class="flex-container"><div class="left">Blue-fronted Lancebill</div>' +
+        '<div class="right">Gray-winged Trumpeter</div></div>' +
+        '<div class="flex-container"><div class="left">Black-and-white Tody-Flycatcher</div>' +
+        '<div class="right">Hairy-crested Antbird</div></div>' +
+        "<p> Off the beaten path, but simply amazing Amazonain foothill birding. Incredible diversity with" +
+        "the combination of Andean and Amazonian species. Most reliable place on the planet for Pink-throated Brilliant," +
+        "and Nocturnal Curassow heard nightly.</p>" +
         '<p><a href="https://ebird.org/barchart?r=L2763260&yr=all&m=" target="_blank">eBird Bar Chart</a></p>',
       ]
 
@@ -233,5 +263,8 @@
     <h1>Budget Birding in Northern Ecuador</h1>
     <!--The div element for the map -->
     <div id="map"></div>
+    <div id="bottom">
+      <p>Click on the icons to learn more about birding locations across northern Ecuador</p>
+    </div>
   </body>
 </html>
