@@ -37,13 +37,13 @@
 
       /* Set the size of the div element that contains the map */
       #map {
-        height: 600px;
-        /* The height is 600 pixels */
-        width: 600px;
-        /* The width is 600px */
+        height: 550px;
+        /* The height is 550 pixels */
+        width: 550px;
+        /* The width is 550px */
         margin: 15px auto;
       }
-      h1 {
+      h2 {
           text-align: center;
       }
       body {
@@ -54,7 +54,7 @@
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 5,
-          center: { lat: 49.31474060356605, lng: -85.46207706281558 },
+          center: { lat: 48.22320625371675, lng: -84.23502487480555 },
         });
         // Create an array of alphabetical characters used to label the markers.
         const labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -202,7 +202,7 @@
       <li><a href="tutorial3c.html">Tutorial 3c</a></li>
       <li><a href="finalmap.html">Final Map</a></li>
     </ul>
-    <h1>Ontario Provincial Parks</h1>
+    <h2>Ontario Provincial Parks</h2>
     <!--The div element for the map -->
     <div id="map"></div>
   </body>
