@@ -7,18 +7,17 @@
       defer
     ></script>
     <style type="text/css">
+      /* Set the size of the div element that contains the map, then size of the body it's relative to */
+      #map {
+        height: 80%; /* keep map 80% of page, which combined with title and bottom text block should be 100%*/
+        border: 3px solid green;
+      }
       html, body {
         height: 100%;
         margin: 0px;
         background-color: rgb(129, 206, 94);
       }
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 80%;
-        border: 3px solid green;
-        /* width: 100%; */
-        /* margin: 15px auto; */
-      }
+      /* title centered within block, only top 10% of page */
       h1 {
         text-align: center;
         display: flex;
@@ -29,10 +28,11 @@
         height: 10%;
         margin: 0;
       }
-     
+     /* keeps bottom block 10% of page */
       #bottom {
         height: 10%;
       }
+      /* formatting applied to text on bottom and also in the info boxes */
       p {
         height: 90%;
         margin: 10px;
@@ -40,44 +40,43 @@
       }
 
       /*Format Focal Species in info boxes*/
-      .h2 {
+      .text {
         margin-left: 10px;
       }
+      /* flex block to format 2-column focal species list */
       .flex-container {
         display: flex;
         flex-direction: row;
         margin-left: 10px;
         margin-right: 10px;
       }
-      .right {
-        /* margin-right: 10px; */
-        /* float: right; */
-        flex: 50%;
-      }
-      .left {
-        /* margin-left: 10px; */
-        /* float: left; */
+      /* separate right and left classes because started with float, but flex better */
+      .right, .left {
         flex: 50%;
       }
     </style>
     <script>
+      // function to create map
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 9,
           center: { lat: -0.3046714990034484, lng: -78.47254183196448 },
           mapTypeId: 'hybrid'
         });
+        // creates an array of markers to can keep track of individual markers after they are placed
         const marker = [];
+        // plots markers at each location (based on array)
         for (var i =0; i < locations.length; i++) {
           marker[i] = new google.maps.Marker({
             position: locations[i],
             map: map,
           });
-          addInfoWindow(marker[i], sitedescription[i], map)
+          // calls function for each marker places
+          addInfoWindowZoom(marker[i], sitedescription[i], map)
         }
       };
-
-      function addInfoWindow (marker, siteinfo, themap) {
+      // function to  create info window for each marker, and create listener to zoom and pan when clicked
+      function addInfoWindowZoom (marker, siteinfo, themap) {
         const infowindow = new google.maps.InfoWindow({
           content: siteinfo,
           maxWidth: 400,
@@ -90,19 +89,12 @@
           }
         });      
       }
-
-          // marker.addListener("click", () => {
-          // map.panTo(marker.getPosition());
-          // map.setZoom(12);
-          // map.setCenter(marker.getPosition());
-
-      // const image = "/iconimages/binocularssmall.png"
-      
+      // array of site descriptions for info boxes
       const sitedescription = [
-        "<h2>Yellow House - Mindo</h2>" +
-        "<p>Habitat: Cloud Forest, Second Growth, Gardens, Open Pasture</p>" +
-        "<p>Elevation: 1200m to 1700m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Yellow House - Mindo</h2>" +
+        "<p><b>Habitat:</b> Cloud Forest, Second Growth, Gardens, Open Pasture</p>" +
+        "<p><b>Elevation:</b>: 1200m to 1700m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Golden-headed Quetzal</div>' +
         '<div class="right">Scaled Fruiteater</div></div>' +
         '<div class="flex-container"><div class="left">Common Potoo</div>' +
@@ -110,16 +102,16 @@
         '<div class="flex-container"><div class="left">Crimson-rumped Toucanet</div>' +
         '<div class="right">Guayaquil Woodpecker</div></div>' +
         '<p><a href="https://ebird.org/barchart?r=L792572&yr=all&m=" target="_blank">eBird Bar Chart</a></p>'+
-        "<p>Buildings surrounded by very birdy gardens just outside Mindo. A road up the hill leads to" +
-        " an extensive network of trails through old second growth then nice primary forest at the top" +
+        "<p>Buildings surrounded by very birdy gardens just outside Mindo. A road up the hill leads to " +
+        "an extensive network of trails through old second growth then nice primary forest at the top " +
         "of the property.</p>" +
-        "<p>Accommodation: Rooms for $20/night and access to the trails at all hours. Cabins also available," +
+        "<p><b>Accommodation:</b> Rooms for $20/night and access to the trails at all hours. Cabins also available, " +
         "even cheaper if rented for the week.</p>",
 
-        "<h2>Mangaloma Reserve</h2>" +
-        "<p>Habitat: Foothill Rainforest, Second Growth, Gardens</p>" +
-        "<p>Elevation: 700m to 900m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Mangaloma Reserve</h2>" +
+        "<p><b>Habitat:</b> Foothill Rainforest, Second Growth, Gardens</p>" +
+        "<p><b>Elevation:</b>: 700m to 900m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Indigo Quail-Dove</div>' +
         '<div class="right">Banded Ground-Cuckoo</div></div>' +
         '<div class="flex-container"><div class="left">Crested Owl</div>' +
@@ -127,16 +119,16 @@
         '<div class="flex-container"><div class="left">Crimson-bellied Woodpecker</div>' +
         '<div class="right">Long-wattled Umbrellabird</div></div>' +
         '<p><a href="https://ebird.org/barchart?r=L600104&yr=all&m=" target="_blank">eBird Bar Chart</a></p>' +
-        "<p>Quiet, rustic accommodation among gardens, bamboo and open areas. Trails" +
-        "lead across the river toward 2 loops though Choco foothill forest, with another" +
+        "<p>Quiet, rustic accommodation among gardens, bamboo and open areas. Trails " +
+        "lead across the river toward 2 loops though Choco foothill forest, with another " +
         "trail leading up to the top of the preserve where Long-wattled Umbrellabirds lek.</p>" +
-        "<p>Accommodation: $20/night for a mattress in the loft and access to the kitchen, as well as" +
+        "<p><b>Accommodation:</b> $20/night for a mattress in the loft and access to the kitchen, as well as " +
         "access to trails day and night (amazing night hiking!).</p>",
 
-        "<h2>Rio Silanche Bird Sanctuary</h2>" +
-        "<p>Habitat: Lowland Rainforest</p>" +
-        "<p>Elevation: 325m to 410m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Rio Silanche Bird Sanctuary</h2>" +
+        "<p><b>Habitat:</b> Lowland Rainforest</p>" +
+        "<p><b>Elevation:</b>: 325m to 410m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Orange-fronted Barbet</div>' +
         '<div class="right">Chestnut-fronted Macaw</div></div>' +
         '<div class="flex-container"><div class="left">Black-capped Pygmy-Tyrant</div>' +
@@ -144,16 +136,16 @@
         '<div class="flex-container"><div class="left">Blue-whiskered Tanager</div>' +
         '<div class="right">Scarlet-breasted Dacnis</div></div>' +
         '<p><a href="https://ebird.org/barchart?r=L1396974&yr=all&m=" target="_blank">eBird Bar Chart</a></p>' +
-        "<p>Small tract of preserved Choco lowland rainforest with a canopy tower and wide, well" +
+        "<p>Small tract of preserved Choco lowland rainforest with a canopy tower and wide, well " +
         "maintained forest trails. Most accessible site for many Choco endemics." +
-        "<p>Accommodation: None on the reserve, but cheap rooms can be found in nearby Pedro Vicente Maldonado" +
+        "<p><b>Accommodation:</b> None on the reserve, but cheap rooms can be found in nearby Pedro Vicente Maldonado " +
         "and you can catch a cab to the reserve.</p>",
 
 
-        "<h2>Papallacta - Road to Antennas</h2>" +
-        "<p>Habitat: Paramo, Scrub, Andean Lakes</p>" +
-        "<p>Elevation: 3900m to 4400m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Papallacta - Road to Antennas</h2>" +
+        "<p><b>Habitat:</b> Paramo, Scrub, Andean Lakes</p>" +
+        "<p><b>Elevation:</b>: 3900m to 4400m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Ecuadorian Hillstar</div>' +
         '<div class="right">Blue-mantled Thornbil</div></div>' +
         '<div class="flex-container"><div class="left">Rufous-bellied Seedsnipe</div>' +
@@ -163,14 +155,14 @@
         '<p><a href="https://ebird.org/barchart?r=L947285&yr=all&m=" target="_blank">eBird Bar Chart</a></p>' +
         "<p>Dirt road climbing from the pass up to the paramo at the peak. Best place in Ecuador " +
         "to look for Rufous-bellied Seedsnipe.</p>" +
-        "<p>Accommodation: Numerous hostals in Papallacta. From there can take a quick bus ride to 'La Virgen'" +
+        "<p><b>Accommodation:</b> Numerous hostals in Papallacta. From there can take a quick bus ride to 'La Virgen' " +
         "and hike the road to the antennas, or catch a cab.</p>",
 
         
-        "<h2>Papallacta - Road from town to Preserve</h2>" +
-        "<p>Habitat: Elfin Forest, Scrub</p>" +
-        "<p>Elevation: 3300m to 3700m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Papallacta - Road from town to Preserve</h2>" +
+        "<p><b>Habitat:</b> Elfin Forest, Scrub</p>" +
+        "<p><b>Elevation:</b>: 3300m to 3700m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Purple-backed Thornbill</div>' +
         '<div class="right">Rainbow-bearded Thornbill</div></div>' +
         '<div class="flex-container"><div class="left">Black-chested Buzzard-Eagle</div>' +
@@ -180,14 +172,14 @@
         '<p><a href="https://ebird.org/barchart?r=L1740868&yr=all&m=" target="_blank">eBird Bar Chart</a></p>' +
         "<p>Road heading from the hot springs resort through elfin forest up towards paramo at the reserve. " +
         "Forests near the top of the road are good for Masked Mountan-Tanger and Black-backed Bush-Tanager.</p>" +
-        "<p>Accommodation: Numerous hostels in Papallacta. From there can hike all the way up to the " +
+        "<p><b>Accommodation:</b> Numerous hostels in Papallacta. From there can hike all the way up to the " +
         "reserve and back down, or catch a cab to the top and bird back down.</p>",
 	
         
-        "<h2>Guango Lodge</h2>" +
-        "<p>Habitat: Cloud Forest, River</p>" +
-        "<p>Elevation: 2700m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Guango Lodge</h2>" +
+        "<p><b>Habitat:</b> Cloud Forest, River</p>" +
+        "<p><b>Elevation:</b>: 2700m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Torrent Duck</div>' +
         '<div class="right">Mountain Avocetbill</div></div>' +
         '<div class="flex-container"><div class="left">Sword-billed Hummingbird</div>' +
@@ -198,14 +190,14 @@
         "<p>High elevation cloud forest along a rushing river with Torrent Ducks, with a handful of trails. " +
         "Amazing hummingbird feeder set-up that attract Sword-billed Hummingbird among hordes of" +
         "Chestnut-breasted Coronets and many other species.</p>" +
-        "<p>Accommodation: Expensive lodge to stay, but can hostal in nearby Papallacta and catch a" +
+        "<p><b>Accommodation:</b> Expensive lodge to stay, but can hostal in nearby Papallacta and catch a " +
         "cab to and from. $10 entrance fee includes coffee.</p>",
 
 
-        "<h2>Cabanas San Isidro</h2>" +
-        "<p>Habitat: Cloud Forest</p>" +
-        "<p>Elevation: 1800m to 2000m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Cabanas San Isidro</h2>" +
+        "<p><b>Habitat:</b> Cloud Forest</p>" +
+        "<p><b>Elevation:</b>: 1800m to 2000m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Andean Potoo</div>' +
         '<div class="right">"San Isidro Owl"</div></div>' +
         '<div class="flex-container"><div class="left">Barred Antthrush</div>' +
@@ -215,14 +207,14 @@
         '<p><a href="https://ebird.org/barchart?r=L489454&yr=all&m=" target="_blank" class ="eBird">eBird Bar Chart</a></p>' +
         "<p>Excellent trails through cloud forest. White-bellied Antpitta feeding, Andean Cock-of-the-Rock lek " +
         "and home of the undescribed 'San Isidro Owl'. Excellent hummingbird feeder set-up as well.</p>" +
-        "<p>Accommodation: Expensive lodge to stay, great AirBnB south of Cosanga for $15/night with breakfast" +
+        "<p><b>Accommodation:</b> Expensive lodge to stay, great AirBnB south of Cosanga for $15/night with breakfast. " +
         "Access to the lodge grounds is $10 for the day, but birding the adjacent road can be excellent as well.</p>",
 
 
-        "<h2>Guacamayos Ridge</h2>" +
-        "<p>Habitat: Cloud Forest</p>" +
-        "<p>Elevation: 2200m to 1800m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Guacamayos Ridge</h2>" +
+        "<p><b>Habitat:</b> Cloud Forest</p>" +
+        "<p><b>Elevation:</b>: 2200m to 1800m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">White-faced Nunbird</div>' +
         '<div class="right">Black-billed Mountain-Toucan</div></div>' +
         '<div class="flex-container"><div class="left">Greater Scythebill</div>' +
@@ -232,14 +224,14 @@
         '<p><a href="https://ebird.org/barchart?r=L468859&yr=all&m=" target="_blank">eBird Bar Chart</a></p>' +
         "<p>Notoriously cloudy and rainy place, but best place in Ecuador to look for Greater Scythbill, Peruvian Antpitta, " +
         "and others. Amazing birding if the weather cooperates. </p>" +
-        "<p>Accommodation: Can stay at the AirBnB south of Cosanga for $15/night with breakfast, then catch a bus up the" +
+        "<p><b>Accommodation:</b> Can stay at the AirBnB south of Cosanga for $15/night with breakfast, then catch a bus up the " +
         "hill to 'La Virgen' to get to the ridge.</p>",
 
         
-        "<h2>Narupa Reserve</h2>" +
-        "<p>Habitat: Montane Rainforest</p>" +
-        "<p>Elevation: 1000m to 1600m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Narupa Reserve</h2>" +
+        "<p><b>Habitat:</b> Montane Rainforest</p>" +
+        "<p><b>Elevation:</b>: 1000m to 1600m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Black Tinamou</div>' +
         '<div class="right">White-crested Thorntail</div></div>' +
         '<div class="flex-container"><div class="left">Gould\'s Jewelfront</div>' +
@@ -249,12 +241,12 @@
         '<p><a href="https://ebird.org/barchart?r=L1238007&yr=all&m=" target="_blank">eBird Bar Chart</a></p>' +
         "<p>Most reliable place to at least hear Black Tinamou, also excellent forest birding " +
         "and hummingbird feeder set-up.</p>" +
-        "<p>Accommodation: Can stay at the Jocotoco ranger station on-site for $20/night with access to kitchen.</p>",
+        "<p><b>Accommodation:</b> Can stay at the Jocotoco ranger station on-site for $20/night with access to kitchen.</p>",
 
-        "<h2>Rio Bigal Reserve</h2>" +
-        "<p>Habitat: Foothill Rainforest</p>" +
-        "<p>Elevation: 500m to 900m</p>" +
-        '<div class="flex-container">Focal Species:</div>' +
+        "<h2 class='text'>Rio Bigal Reserve</h2>" +
+        "<p><b>Habitat:</b> Foothill Rainforest</p>" +
+        "<p><b>Elevation:</b>: 500m to 900m</p>" +
+        '<div class="flex-container"><b>Focal Species:</b></div>' +
         '<div class="flex-container"><div class="left">Nocturnal Curassow</div>' +
         '<div class="right">Pink-throated Brilliant</div></div>' +
         '<div class="flex-container"><div class="left">Blue-fronted Lancebill</div>' +
@@ -262,14 +254,14 @@
         '<div class="flex-container"><div class="left">Black-and-white Tody-Flycatcher</div>' +
         '<div class="right">Hairy-crested Antbird</div></div>' +
         '<p><a href="https://ebird.org/barchart?r=L2763260&yr=all&m=" target="_blank">eBird Bar Chart</a></p>' +
-        "<p> Off the beaten path, but simply amazing Amazonain foothill birding. Incredible diversity with" +
-        "the combination of Andean and Amazonian species. Most reliable place on the planet for Pink-throated Brilliant," +
+        "<p> Off the beaten path, but simply amazing Amazonain foothill birding. Incredible diversity with " +
+        "the combination of Andean and Amazonian species. Most reliable place on the planet for Pink-throated Brilliant, " +
         "and Nocturnal Curassow heard nightly.</p>" +
-        "<p>Accommodation: Not exactly 'budget', but cheap in terms of Amazonian birding. $70/night includes 3 meals a day" +
-        "supports protection and expansion of the reserve, and access to world-class, off-the-beaten-track birding.</p>"
+        "<p><b>Accommodation:</b> Not exactly 'budget', but cheap in terms of Amazonian birding. $70/night includes 3 meals a day" +
+        "supports protection and expansion of the reserve, and access to world-class birding away from the main circuit.</p>"
 
       ]
-
+      // array of locations for markers
       const locations = [
         { lat: -0.05112495397812946, lng: -78.7722724157827 }, /*Yellow House*/
         { lat: 0.10662943800824033, lng: -78.98545811748986 }, /*Mangaloma*/
