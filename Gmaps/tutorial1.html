@@ -7,7 +7,7 @@
       defer
     ></script>
     <style type="text/css">
-   /* for navbar - taken from W3 Schools*/
+   /* for navbar - adapted from W3 Schools https://www.w3schools.com/css/css_navbar_horizontal.asp */
     ul {
         list-style-type: none;
         margin: 0;
@@ -32,17 +32,25 @@
         background-color: #111;
       }
 
+      .active {
+        background-color: #818b81;
+      }
+
       /* for map */
 
       /* Set the size of the div element that contains the map */
       #map {
-        height: 400px;
-        /* The height is 600 pixels */
-        width: 400px;
-        /* The width is 600px */
+        height: 70%;
+        /* width: 70%; */
         margin: 15px auto;
       }
-      h2 {
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
           text-align: center;
       }
       body {
@@ -53,14 +61,14 @@
     <script>
       // Initialize and add the map
       function initMap() {
-        // The location of Uluru
+        // The location of the University of Guelph
         const UofG = { lat: 43.53271365239879, lng: -80.22618101071347 };
-        // The map, centered at Haliburton Scout Reserve
+        // The map, centered at UofG
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 15,
           center: UofG,
         });
-        // The marker, positioned at Haliburton Scout Reserve
+        // The marker, positioned at UofG
         const marker = new google.maps.Marker({
           position: UofG,
           map: map,
@@ -69,17 +77,17 @@
     </script>
   </head>
   <body>
+    <!-- Navbar adapted from W3 Schools https://www.w3schools.com/css/css_navbar_horizontal.asp-->
     <ul>
-      <li><a class="active" href="SharkMap.html">Shark Spotters</a></li>
+      <li><a href="SharkMap.html">Shark Spotters</a></li>
       <li><a href="threepillarsAPIs.html">Three Pillars APIs</a></li>
-      <li><a href="tutorial1.html">Tutorial 1</a></li>
+      <li><a class="active" href="tutorial1.html">Tutorial 1</a></li>
       <li><a href="tutorial2.html">Tutorial 2</a></li>
       <li><a href="tutorial3a.html">Tutorial 3a</a></li>
       <li><a href="tutorial3b.html">Tutorial 3b</a></li>
       <li><a href="tutorial3c.html">Tutorial 3c</a></li>
-      <li><a href="finalmap.html">Final Map</a></li>
     </ul>
-    <h2>Google Maps Example: Location of my Undergrad</h2>
+    <h1>Google Maps Example: Location of my Undergrad</h1>
     <!--The div element for the map -->
     <div id="map"></div>
   </body>

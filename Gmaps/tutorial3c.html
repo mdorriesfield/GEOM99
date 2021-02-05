@@ -9,7 +9,7 @@
     ></script>
     <style type="text/css">
 
-      /* for navbar - taken from W3 Schools*/
+      /* for navbar - from W3 Schools https://www.w3schools.com/css/css_navbar_horizontal.asp*/
       ul {
         list-style-type: none;
         margin: 0;
@@ -34,12 +34,16 @@
         background-color: #111;
       }
 
+      .active {
+        background-color: #818b81;
+      }
+
       /* for map */
 
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 100%;
+       #map {
+        height: 80%;
       }
 
       /* Optional: Makes the sample page fill the window. */
@@ -89,15 +93,15 @@
     </script>
   </head>
   <body>
+    <!-- Navbar adapted from W3 Schools https://www.w3schools.com/css/css_navbar_horizontal.asp -->
     <ul>
-      <li><a class="active" href="SharkMap.html">Shark Spotters</a></li>
+      <li><a href="SharkMap.html">Shark Spotters</a></li>
       <li><a href="threepillarsAPIs.html">Three Pillars APIs</a></li>
       <li><a href="tutorial1.html">Tutorial 1</a></li>
       <li><a href="tutorial2.html">Tutorial 2</a></li>
       <li><a href="tutorial3a.html">Tutorial 3a</a></li>
       <li><a href="tutorial3b.html">Tutorial 3b</a></li>
-      <li><a href="tutorial3c.html">Tutorial 3c</a></li>
-      <li><a href="finalmap.html">Final Map</a></li>
+      <li><a class="active" href="tutorial3c.html">Tutorial 3c</a></li>
     </ul>
     <h2>Earthquake Distribution Worldwide</h2>
     <div id="map"></div>

@@ -3,7 +3,7 @@
   <head>
     <title>Shark Sightings False Bay, SA</title>
     <style>
-   /* for navbar - taken from W3 Schools*/
+   /* for navbar - adapted from W3 Schools https://www.w3schools.com/css/css_navbar_horizontal.asp*/
         ul {
           list-style-type: none;
           margin: 0;
@@ -28,23 +28,27 @@
           background-color: #111;
         }
 
+        .active {
+          background-color: #818b81;
+        }
+
         /* for map */
+        /* map position */
         #sharkmap {
         margin: 15px auto;
         display: block;
+        height: 80%;
+        width: 80%;
         }
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
-        #sharkmap {
-          width: 100%;
-          height: 100%;
-        }
     </style>
   </head>
   <body>
+    <!-- navbar adapted from W3 Schools https://www.w3schools.com/css/css_navbar_horizontal.asp -->
     <ul>
       <li><a class="active" href="SharkMap.html">Shark Spotters</a></li>
       <li><a href="threepillarsAPIs.html">Three Pillars APIs</a></li>
@@ -53,8 +57,8 @@
       <li><a href="tutorial3a.html">Tutorial 3a</a></li>
       <li><a href="tutorial3b.html">Tutorial 3b</a></li>
       <li><a href="tutorial3c.html">Tutorial 3c</a></li>
-      <li><a href="finalmap.html">Final Map</a></li>
     </ul>
+    <!-- iframe to store map -->
     <iframe id="sharkmap" src="https://www.google.ca/maps/d/embed?mid=1uE_wm9PFigl9dUKtM67yjDB1dCifZKcn" title="Shark Sightings in False Bay, South Africa"></iframe>
   </body>
 </html>
