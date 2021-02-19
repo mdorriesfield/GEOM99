@@ -24,17 +24,16 @@
             "esri/views/MapView",
             "esri/widgets/Locate",
 
-            "esri/widgets/Track",
-            "esri/Graphic"
-          ],
+            // "esri/widgets/Track",    // I have commented out the tracking stuff because I'm just using my computer, which doesnt move
+            // "esri/Graphic"           // So I put the locate code back in and commented this out
             function (
               esriConfig,
               Map,
               MapView,
               Locate,
 
-              Track,
-              Graphic
+              // Track,                 // I have commented out the tracking stuff because I'm just using my computer, which doesnt move
+              // Graphic                // So I put the locate code back in and commented this out
               ) {
            
             esriConfig.apiKey = "AAPKe6b6beb2565b424f8ba527d4ede67576WaA13wHMXffbhGwNp7Hfi95VwkqAtiEQCacoKBRteescbwh-s48l2bejnlP17F7f";
@@ -60,21 +59,21 @@
               }
             });
 
-            const track = new Track({
-              view: view,
-              graphic: new Graphic({
-                symbol: {
-                  type: "simple-marker",
-                  size: "12px",
-                  color: "green",
-                  outline: {
-                    color: "#efefef",
-                    width: "1.5px"
-                  }
-                }
-              }),
-              useHeadingEnabled: false
-            });
+            // const track = new Track({    // I have commented out the tracking stuff because I'm just using my computer, which doesnt move
+            //   view: view,                // So I put the locate code back in and commented this out
+            //   graphic: new Graphic({
+            //     symbol: {
+            //       type: "simple-marker",
+            //       size: "12px",
+            //       color: "green",
+            //       outline: {
+            //         color: "#efefef",
+            //         width: "1.5px"
+            //       }
+            //     }
+            //   }),
+            //   useHeadingEnabled: false
+            // });
 
             view.ui.add(locate, "top-left");
 
