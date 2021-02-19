@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS API for JavaScript Tutorials: Display Your Location</title>
+    <title>ArcGIS API for JavaScript Tutorials: Display your location</title>
 
     <style>
       html,
@@ -14,71 +14,65 @@
         width: 100%;
       }
     </style>
+
     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.18/"></script>
 
+
     <script>
-        require([
-            "esri/config",
-            "esri/Map",
-            "esri/views/MapView",
-            "esri/widgets/Locate",
+      require([
+          "esri/config",
+          "esri/Map",
+          "esri/views/MapView",
+          "esri/widgets/Locate",
 
-            // "esri/widgets/Track",    // I have commented out the tracking stuff because I'm just using my computer, which doesnt move
-            // "esri/Graphic"           // So I put the locate code back in and commented this out
-            function (
-              esriConfig,
-              Map,
-              MapView,
-              Locate,
+          "esri/widgets/Track",
+          "esri/Graphic"
 
-              // Track,                 // I have commented out the tracking stuff because I'm just using my computer, which doesnt move
-              // Graphic                // So I put the locate code back in and commented this out
-              ) {
-           
-            esriConfig.apiKey = "AAPKe6b6beb2565b424f8ba527d4ede67576WaA13wHMXffbhGwNp7Hfi95VwkqAtiEQCacoKBRteescbwh-s48l2bejnlP17F7f";
+        ], function(
+            esriConfig,
+            Map,
+            MapView,
+            Locate,
 
+            Track,
+            Graphic
 
-            const map = new Map({
-              basemap: "arcgis-navigation"
-            });
+        ) {
 
-            const view = new MapView({
-                map: map,
-                center: [-40, 28],
-                zoom: 2,
-                container: "viewDiv" // Div element
-            });
+        esriConfig.apiKey = "YOUR-API-KEY";
 
-            const locate = new Locate({
-              view: view,
-              useHeadingEnabled: false,
-              goToOverride: function(view, options) {
-                options.target.scale = 1500;
-                return view.goTo(options.target);
-              }
-            });
-
-            // const track = new Track({    // I have commented out the tracking stuff because I'm just using my computer, which doesnt move
-            //   view: view,                // So I put the locate code back in and commented this out
-            //   graphic: new Graphic({
-            //     symbol: {
-            //       type: "simple-marker",
-            //       size: "12px",
-            //       color: "green",
-            //       outline: {
-            //         color: "#efefef",
-            //         width: "1.5px"
-            //       }
-            //     }
-            //   }),
-            //   useHeadingEnabled: false
-            // });
-
-            view.ui.add(locate, "top-left");
-
+        const map = new Map({
+          basemap: "arcgis-navigation"
         });
+
+        const view = new MapView({
+          container: "viewDiv",
+          map: map,
+          center: [-40, 28],
+          zoom: 2
+        });
+
+        const track = new Track({
+          view: view,
+          graphic: new Graphic({
+            symbol: {
+              type: "simple-marker",
+              size: "12px",
+              color: "green",
+              outline: {
+                color: "#efefef",
+                width: "1.5px"
+              }
+            }
+          }),
+          useHeadingEnabled: false
+        });
+        view.ui.add(track, "top-left");
+
+      });
     </script>
+
   </head>
   <body>
     <div id="viewDiv"></div>
