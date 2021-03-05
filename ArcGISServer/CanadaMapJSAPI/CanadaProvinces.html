@@ -17,7 +17,7 @@
   <script>
     require([
       "esri/config",
-
+      "esri/Map",
       "esri/WebMap",
       "esri/views/MapView",
       "esri/widgets/ScaleBar",
@@ -26,9 +26,9 @@
 
     esriConfig.apiKey = "AAPKe6b6beb2565b424f8ba527d4ede67576WaA13wHMXffbhGwNp7Hfi95VwkqAtiEQCacoKBRteescbwh-s48l2bejnlP17F7f";
 
-    const webmap = new WebMap({
+      const webmap = new WebMap({
         portalItem: {
-          id: "7e90979758ca43228c14f5e3f869b897"
+          id: "41281c51f9de45edaf1c8ed44bb10e30"
         }
       });
 
@@ -45,7 +45,7 @@
 
       view.ui.add(scalebar, "bottom-left");
 
-      const legend = new Legend ({
+    const legend = new Legend ({
         view: view
       });
       view.ui.add(legend, "top-right");
