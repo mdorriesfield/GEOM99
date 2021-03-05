@@ -17,12 +17,11 @@
   <script>
     require([
       "esri/config",
-      "esri/Map",
       "esri/WebMap",
       "esri/views/MapView",
-      "esri/widgets/ScaleBar",
-      "esri/widgets/Legend"
-    ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
+      "esri/widgets/ScaleBar"
+    //   "esri/widgets/Legend"
+    ], function(esriConfig, WebMap, MapView, ScaleBar) {
 
     esriConfig.apiKey = "AAPK5660b353e9154549938275b02a1d95d6yZ3mxdW0xPbT_2I_K3hNwuNZsxjpibTm-SexoHkczPg0loINihE6GjEQb3o1EIeB";
 
@@ -39,16 +38,11 @@
 
       });
 
-    //   const scalebar = new ScaleBar({
-    //     view: view
-    //   });
+      const scalebar = new ScaleBar({
+        view: view
+      });
 
-    //   view.ui.add(scalebar, "bottom-left");
-
-    // const legend = new Legend ({
-    //     view: view
-    //   });
-    //   view.ui.add(legend, "top-right");
+      view.ui.add(scalebar, "bottom-left");
 
   });
   </script>
